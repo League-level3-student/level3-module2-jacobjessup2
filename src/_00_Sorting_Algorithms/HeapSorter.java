@@ -31,15 +31,17 @@ public class HeapSorter extends Sorter {
 	
 	public void heapSort(int[] array, int n, int i, SortingVisualizer display) {
 		//2. create an integer called largest and set it equal to i
-	
+		int largest = i;
 		//3. create an integer called l and set it equal to 2 * i + 1
-        
+        int l = 2 * i +1;
 		//4. create an integer called r and set it equal to 2 * i + 2
- 
+        int r = 2 * i + 2;
         //5. if l is less than n 
         //   and array element at l is greater than array element at largest
         //   then set largest equal to l
- 
+        if(l < n && array[l]> array[largest]) {
+        	largest = l;
+        }
         //6. if r is less than n 
         //   and array element at r is greater than array element at largest
         //   then set largest equal to r
