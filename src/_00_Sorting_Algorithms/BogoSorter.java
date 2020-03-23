@@ -16,10 +16,25 @@ public class BogoSorter extends Sorter {
 	//	if yes, finished; if no, go to step 2.
 	// STEP 2. Take two random elements in the array and swap them.
 	// STEP 3. Go back to step 1.
-	
+	public void bogoSort(int[] array, SortingVisualizer display){
+		Random rand = new Random();
+		display.updateDisplay();
+		for (int i = 0; i < array.length-1; i++) {
+			if(array[i]>array[i+1]) {
+				int rand1 = rand.nextInt(array.length-1);
+				int rand2 = rand.nextInt(array.length-1);
+				int temp = array[rand1];
+				array[rand1] = array[rand2];
+				array[rand2] = temp;
+				bogoSort(array, display);
+			}
+		}
+		
+	}
 	//1. Complete the sort method using the Bogo sort algorithm. 
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
-
+		bogoSort(array,display);
+		
 	}
 }
